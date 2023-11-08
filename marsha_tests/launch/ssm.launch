@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="velocity_scaling_iso15066" type="velocity_scaling_iso15066_node" name="safety" output="screen">
+    <rosparam file="$(find marsha_tests)/config/ssm.yaml" command="load"/>
+  </node>
+</launch>

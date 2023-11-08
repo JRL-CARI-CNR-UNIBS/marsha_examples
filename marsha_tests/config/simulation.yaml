@@ -1,0 +1,76 @@
+#TEST INFO
+test: "MARSHA"
+init_test: 0
+end_test: 50
+
+#PLANNING CONFIGURATIONS:
+group_name: "manipulator"
+base_link: "world"
+last_link: "flange" 
+
+start_configuration: [-1.3807929197894495, -1.941963335076803, -1.5570552349090576, -1.2178809803775330, 1.6100476980209350, -0.7482913176165980]
+stop_configuration:  [ 1.5471903204917908, -1.848431249658102, -1.5716460943222046, -1.3139036160758515, 1.6302255392074585, -0.6428130308734339]
+
+optimize_path: true
+utopia_tolerance: 0.05
+extend: false
+max_distance: 0.5
+checker_resolution: 0.05
+parallel_checker_n_threads: 6
+
+dt_replan: 0.20
+trj_execution_thread_frequency: 500
+collision_checker_thread_frequency: 30
+benchmark: false
+scaling: 1.0
+read_safe_scaling: true
+joint_target_topic: "/joint_target"
+unscaled_joint_target_topic: "/unscaled_joint_target"
+overrides: ["/safe_ovr_1"]
+virtual_obj:
+  spawn_objs: false
+  spawn_instants: [0.5]
+  obj_type: "sphere02"
+  obj_max_size: 0.2
+  obj_vel: 0.5
+  dt_move: 0.25
+  moves_before_change_direction: 3
+  obs_pose_topic: "/poses"
+
+MARS:
+  n_other_paths: 2
+  reverse_start_nodes: true
+  full_net_search: false
+  dt_replan_relaxed: 0.20
+  verbosity_level: 2
+  display_other_paths: false
+
+MARSHA:
+  ssm_max_step_size: 0.05
+  ssm_threads: 6
+  unaware_obstacles: [] # fixed scene is part of the "robot" description in URDF file
+  poi_names: ["forearm_link","wrist_1_link","wrist_3_link","flange"]
+  #other parameters read from ssm.yaml
+
+
+n_obj_for_path: 10
+obj_for_path: "sphere"
+radius_area: 0.15
+obj_central_pos1: [-0.80, 0.50,0.50]
+obj_central_pos2: [-0.80, 0.00,0.50]
+obj_central_pos3: [-0.80,-0.50,0.50]
+
+#VERBOSITY:
+display: true
+replanner_verbosity: false
+display_timing_warning: false
+display_replanning_success: true
+display_replan_trj_point: true
+display_replan_config: true
+display_current_trj_point: true
+display_current_config: true
+which_link_display_path: "flange"
+
+robot_description_planning:
+  default_velocity_scaling_factor: 1.0
+  default_acceleration_scaling_factor: 1.0

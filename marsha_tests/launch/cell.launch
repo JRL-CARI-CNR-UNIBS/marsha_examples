@@ -1,0 +1,35 @@
+<launch>
+  <!-- By default, hide joint_state_publisher's GUI in 'fake' controller_manager mode -->
+  <arg name="use_rviz" default="true" />
+
+  <!-- If needed, broadcast static tf for robot root -->
+
+    <!-- We do not have a real robot connected, so publish fake joint states via a joint_state_publisher
+         MoveIt's fake controller's joint states are considered via the 'source_list' parameter -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <rosparam param="source_list">[move_group/fake_controller_joint_states, /joint_target]</rosparam>
+    </node>
+    
+    <!-- Given the published joint states, publish tf for the robot links -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <rosparam param="publish_frequency">100</rosparam>
+    </node>
+
+  <!-- Run the main MoveIt executable without trajectory execution (we do not have controllers configured by default) -->
+  <include file="$(eval find('marsha_cell_moveit_config') + '/launch/move_group.launch')">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="moveit_controller_manager" value="fake" />
+    <arg name="fake_execution_type" value="interpolate"/>
+    <arg name="info" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="pipeline" value="ompl"/>
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+  <!-- Run Rviz and load the default config to see the state of the move_group node -->
+  <include file="$(eval find('marsha_cell_moveit_config') + '/launch/moveit_rviz.launch')" if="$(arg use_rviz)">
+    <arg name="rviz_config" value="$(eval find('marsha_cell_description') + '/config/view_cell.rviz')"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+</launch>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="marsha_cell" >
+
+<xacro:property name="grey" value="0.517647058823529	0.529411764705882	0.537254901960784 1" />
+
+  <!-- ur10e+robotiq -->
+  <!-- <xacro:include filename="$(find ur10e_robotiq_simplified_description)/urdf/ur10e_robotiq.urdf.xacro" />
+  <xacro:ur10e_robotiq_simplified />  -->
+
+  <!-- ur10e -->
+  <xacro:include filename="$(find ur_description)/urdf/inc/ur10e_macro.xacro"/>
+  <xacro:ur10e_robot
+    prefix=""
+    visual_parameters_file='$(find ur_simplified_description)/config/ur10e/simplified_visual_parameters.yaml'
+  />
+
+  <link name="world" />
+
+  <joint name="world_joint" type="fixed">
+   <parent link ="world" />
+   <child link ="base_link" />
+   <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+ <link name="table">
+   <visual>
+     <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+     <geometry>
+       <box size="3.0 3.0 0.12" />
+     </geometry>
+     <material name="Grey">
+       <color rgba="${grey}"/>
+     </material>
+   </visual>
+   <collision>
+     <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+     <geometry>
+       <box size="3.0 3.0 0.12" />
+     </geometry>
+     <material name="Grey">
+       <color rgba="${grey}"/>
+     </material>
+   </collision>
+ </link>
+
+  <joint name="world_table" type="fixed">
+   <parent link ="world" />
+   <child link ="table" />
+   <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint> 
+
+ 
+</robot>

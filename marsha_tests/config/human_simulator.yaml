@@ -1,0 +1,26 @@
+base_frame: "world" # define the reference frame for the positions
+rate: 30.0
+
+# x,y,z to reach
+x: [-1.50,-0.80,-1.50]
+y: [ 0.05, 0.10, 0.05]
+z: [ 0.35, 0.35, 0.35]
+
+# vector of pauses at each location
+pauses_duration: [0.0,20.0,0.0]
+# pauses_duration: [0.0,10.0,0.0]
+
+# noises during pauses
+noise_x: 0.03
+noise_y: 0.03
+noise_z: 0.03
+
+# vector of timings to move between two sequential locations
+motions_duration: [1.5,1.5]
+
+# size of the human
+chest_size: [0.1,0.2,0.4] # box to represent the chest
+head_size: 0.08              # sphere to represent the head
+arm_size: [0.20,0.06,0.06]    # box to represent the arms
+
+poses_topic: "/poses" # topic where human poses are published

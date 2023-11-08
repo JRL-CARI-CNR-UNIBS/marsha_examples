@@ -1,0 +1,51 @@
+base_frame: "base_link"
+tool_frame: "open_tip"
+test_links: [wrist_3_link, forearm_link, flange, wrist_1_link] #[wrist_3_link, forearm_link, open_tip, wrist_1_link]
+
+# After Munich
+# minimum_distance: 0.15 #0.2
+# reaction_time: 0.1 #0.15 
+# human_velocity: 1.6
+# maximum_cartesian_acceleration: 2.5
+
+# For new simulations
+minimum_distance: 0.25 
+reaction_time: 0.15 
+human_velocity: 1.6
+maximum_cartesian_acceleration: 2.5
+
+# For test ssm parameters:
+# minimum_distance: 0.1, 0.3
+# reaction_time: 0.15 0.3
+# human_velocity: 0 1.6
+# maximum_cartesian_acceleration: 0.1 2.5
+
+# Combinations:
+    # 0.1     0.15      0     0.1 -> set 1  - done - mars
+    # 0.1     0.15      0     2.5 -> set 2  - done - mars
+    # 0.1     0.15    1.6     0.1 -> set 3  - done - mars
+    # 0.1     0.15    1.6     2.5 -> set 4  - done - mars
+    # 0.1      0.3      0     0.1 -> set 5  - done - mars
+    # 0.1      0.3      0     2.5 -> set 6  - done - mars
+    # 0.1      0.3    1.6     0.1 -> set 7  - done - mars
+    # 0.1      0.3    1.6     2.5 -> set 8  - done - mars
+    # 0.3     0.15      0     0.1 -> set 9  - done - mars
+    # 0.3     0.15      0     2.5 -> set 10 - done - mars
+    # 0.3     0.15    1.6     0.1 -> set 11 - done - mars
+    # 0.3     0.15    1.6     2.5 -> set 12 - done - mars
+    # 0.3      0.3      0     0.1 -> set 13 - done - mars
+    # 0.3      0.3      0     2.5 -> set 14 - done - mars
+    # 0.3      0.3    1.6     0.1 -> set 15 - done - mars
+    # 0.3      0.3    1.6     2.5 -> set 16 - done - mars
+
+# minimum_distance: 0.3 
+# reaction_time: 0.3
+# human_velocity: 1.6
+# maximum_cartesian_acceleration: 2.5
+
+time_remove_old_objects: 0.1
+
+#Information to publish obstacles
+publish_obstacles: false
+sphere_radius: 0.15
+sphere_rgba: [1.0,1.0,1.0,0.2]

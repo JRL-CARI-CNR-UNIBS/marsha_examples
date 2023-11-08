@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: marsha_cell_description
+    relative_path: urdf/marsha_cell.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/marsha_cell.srdf
+  CONFIG:
+    author_name: Cesare Tonola
+    author_email: c.tonola001@unibs.it
+    generated_timestamp: 1699460452

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <rosparam command="load" file="$(find marsha_tests)/config/human_simulator.yaml"/>
+
+  <node pkg="human_simulator"
+        name="human_simulator"
+        type="human_simulator"
+        output="screen">
+ </node>
+</launch>

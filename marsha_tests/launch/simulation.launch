@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+  <rosparam command="load" file="$(find marsha_tests)/config/simulation.yaml"/>
+  <rosparam command="load" file="$(find marsha_cell_description)/config/scene_objects.yaml"/>
+  <rosparam command="load" file="$(find marsha_tests)/config/ssm.yaml"/>
+
+  <node pkg="marsha_tests"
+        name="simulation"
+        type="simulation"
+        output="screen"
+        launch-prefix="gdb -ex run --args"> 
+ </node>
+
+</launch>
