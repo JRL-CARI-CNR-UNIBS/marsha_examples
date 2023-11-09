@@ -62,8 +62,8 @@ sudo docker run -it --net=host --gpus all \
 ```
 Then, inside the container you can try the algorithm.
 
-### Run an example
-The examples involve a mobile humanoid mannequin sharing workspace with a robot. As the robot moves from its initial to target configuration, the human's presence in the cell prompts a response from the safety system. The compared algorithms are:
+### Run the example
+The example involve a mobile humanoid mannequin sharing workspace with a robot. As the robot moves from its initial to target configuration, the human's presence in the cell prompts a response from the safety system. The compared algorithms are:
 
 - MARSHA: Dynamically plans a safety-aware path to optimize execution time.
 - SSM: Simply reduces the robot's speed.
