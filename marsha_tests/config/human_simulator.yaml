@@ -8,7 +8,6 @@ z: [ 0.35, 0.35, 0.35]
 
 # vector of pauses at each location
 pauses_duration: [0.0,20.0,0.0]
-# pauses_duration: [0.0,10.0,0.0]
 
 # noises during pauses
 noise_x: 0.03
@@ -19,8 +18,8 @@ noise_z: 0.03
 motions_duration: [1.5,1.5]
 
 # size of the human
-chest_size: [0.1,0.2,0.4] # box to represent the chest
-head_size: 0.08              # sphere to represent the head
-arm_size: [0.20,0.06,0.06]    # box to represent the arms
+chest_size: [0.1,0.2,0.4]   # box to represent the chest
+head_size: 0.08             # sphere to represent the head
+arm_size: [0.20,0.06,0.06]  # box to represent the arms
 
 poses_topic: "/poses" # topic where human poses are published

@@ -32,4 +32,6 @@
     <arg name="debug" value="false"/>
   </include>
 
+  <node pkg="object_loader" name="context_manager_node" type="context_manager_node" respawn="true" output="screen"/>
+
 </launch>

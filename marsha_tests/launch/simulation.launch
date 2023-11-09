@@ -8,8 +8,7 @@
   <node pkg="marsha_tests"
         name="simulation"
         type="simulation"
-        output="screen"
-        launch-prefix="gdb -ex run --args"> 
+        output="screen">
  </node>
 
 </launch>

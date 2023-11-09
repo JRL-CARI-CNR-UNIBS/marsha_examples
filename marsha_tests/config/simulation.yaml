@@ -1,7 +1,5 @@
 #TEST INFO
-test: "MARSHA"
-init_test: 0
-end_test: 50
+num_test: 1
 
 #PLANNING CONFIGURATIONS:
 group_name: "manipulator"
@@ -65,10 +63,10 @@ display: true
 replanner_verbosity: false
 display_timing_warning: false
 display_replanning_success: true
-display_replan_trj_point: true
-display_replan_config: true
-display_current_trj_point: true
-display_current_config: true
+display_replan_trj_point: false
+display_replan_config: false
+display_current_trj_point: false
+display_current_config: false
 which_link_display_path: "flange"
 
 robot_description_planning:
