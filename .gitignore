@@ -35,6 +35,4 @@
 *kdev4*
 *.autosave
 
-env/
-bag/
 *.bin
