@@ -1,5 +1,5 @@
 # marsha_examples
-This repo contains a simulation example in which the performance of MARSHA are compared to that of SSM and MARS in a collaborative robotic cell.
+This repository includes a simulation example that compares the performance of MARSHA with that of SSM and MARS in a collaborative robotic cell.
 
 ## Build/Installation
 The software can be installed using rosinstall files.
