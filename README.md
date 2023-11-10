@@ -74,10 +74,8 @@ To run the simulation, first launch the environment:
 roslaunch marsha_tests cell.launch
 ```
 
-Activate the python environment and launch the SSM module:
+Launch the SSM node:
 ```
-cd ~/replanning_ws/
-source env/bin/activate
 roslaunch marsha_tests ssm.launch
 ```
 
