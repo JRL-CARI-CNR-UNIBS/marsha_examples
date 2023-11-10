@@ -32,6 +32,8 @@ git clone https://github.com/JRL-CARI-CNR-UNIBS/marsha_examples.git
 git clone https://github.com/JRL-CARI-CNR-UNIBS/human_aware_cost_functions.git
 git clone https://github.com/JRL-CARI-CNR-UNIBS/walking_human_simulator.git
 git clone --recurse-submodules https://github.com/JRL-CARI-CNR-UNIBS/thread-pool.git
+git clone https://github.com/JRL-CARI-CNR-UNIBS/ur_simplified.git
+git clone https://github.com/CNR-STIIMA-IRAS/ssm_safety.git
 ```
 Now, compile the workspace:
 ```

@@ -7,6 +7,7 @@ set(CMAKE_BUILD_TYPE Release)
 
 find_package(catkin REQUIRED COMPONENTS
   length_penalty_metrics
+  ssm15066_estimators
   replanners_lib
   marsha
   roscpp
