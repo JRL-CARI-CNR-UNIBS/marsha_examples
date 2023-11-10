@@ -52,7 +52,9 @@
   <build_depend>marsha</build_depend>
   <build_export_depend>marsha</build_export_depend>
   <exec_depend>marsha</exec_depend>
-
+  <depend>length_penalty_metrics</depend>
+  <depend>human_simulator</depend> 
+  <depend>ssm15066_estimators</depend> 
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

@@ -10,7 +10,6 @@ find_package(catkin REQUIRED COMPONENTS
   replanners_lib
   marsha
   roscpp
-  configuration_msgs
   human_simulator
 )
 

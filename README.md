@@ -30,6 +30,7 @@ cd ~/replanning_ws/src
 git clone https://github.com/JRL-CARI-CNR-UNIBS/marsha.git
 git clone https://github.com/JRL-CARI-CNR-UNIBS/marsha_examples.git
 git clone https://github.com/JRL-CARI-CNR-UNIBS/human_aware_cost_functions.git
+git clone https://github.com/JRL-CARI-CNR-UNIBS/walking_human_simulator.git
 git clone --recurse-submodules https://github.com/JRL-CARI-CNR-UNIBS/thread-pool.git
 ```
 Now, compile the workspace:
