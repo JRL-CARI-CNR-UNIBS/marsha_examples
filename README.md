@@ -1,5 +1,5 @@
 # marsha_examples
-This repository includes a simulation example that compares the performance of [MARSHA](https://github.com/JRL-CARI-CNR-UNIBS/marsha.git) with that of SSM and MARS in a collaborative robotic cell.
+This repository includes a simulation example that compares the performance of [MARSHA](https://github.com/JRL-CARI-CNR-UNIBS/marsha.git) with that of SSM and [MARS](https://github.com/JRL-CARI-CNR-UNIBS/OpenMORE.git) in a collaborative robotic cell.
 The example involve a mobile humanoid mannequin sharing workspace with a robot. As the robot moves from its initial to target configuration, the human's presence in the cell prompts a response from the safety system. The compared algorithms are:
 
 - MARSHA: Dynamically plans a safety-aware path to optimize execution time.
