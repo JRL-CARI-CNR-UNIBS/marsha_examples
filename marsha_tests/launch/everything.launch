@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(eval find('marsha_tests') + '/launch/cell.launch')"/>
+  <include file="$(eval find('marsha_tests') + '/launch/human_simulator.launch')"/>
+  <include file="$(eval find('marsha_tests') + '/launch/ssm.launch')"/>
+  <include file="$(eval find('marsha_tests') + '/launch/simulation.launch')"/>
+</launch>

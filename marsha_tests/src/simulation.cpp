@@ -202,26 +202,26 @@ int main(int argc, char **argv)
   Eigen::VectorXd inv_qp_max = (chain->getDQMax()).cwiseInverse();
   pathplan::LengthPenaltyMetricsPtr ha_metrics = std::make_shared<pathplan::LengthPenaltyMetrics>(ssm,inv_qp_max);
 
+  std_msgs::ColorRGBA fg_color_marsha, fg_color_ssm, fg_color_mars, bg_color;
+  fg_color_marsha.r = 0.000; fg_color_ssm.r = 0.000; fg_color_mars.r = 1.000; bg_color.r = 0.000;
+  fg_color_marsha.g = 0.400; fg_color_ssm.g = 0.500; fg_color_mars.g = 0.500; bg_color.g = 0.000;
+  fg_color_marsha.b = 0.800; fg_color_ssm.b = 0.000; fg_color_mars.b = 0.313; bg_color.b = 0.000;
+  fg_color_marsha.a = 1.000; fg_color_ssm.a = 1.000; fg_color_mars.a = 1.000; bg_color.a = 0.300;
+
+  jsk_rviz_plugins::OverlayText overlayed_text;
+  overlayed_text.font = "FreeSans";
+  overlayed_text.bg_color = bg_color;
+  overlayed_text.height = 70;
+  overlayed_text.width = 450;
+  overlayed_text.left = 290;
+  overlayed_text.top = 5;
+  overlayed_text.line_width = 2;
+  overlayed_text.text_size = 24;
+
   std::vector<std::string> algorithms = {"MARSHA","SSM","MARS"};
   for(const std::string& algorithm:algorithms)
   {
     ROS_INFO_STREAM("Currently running algorithm: "<<algorithm);
-
-    std_msgs::ColorRGBA fg_color_marsha, fg_color_ssm, fg_color_mars, bg_color;
-    fg_color_marsha.r = 0.000; fg_color_ssm.r = 0.000; fg_color_mars.r = 1.000; bg_color.r = 0.000;
-    fg_color_marsha.g = 0.400; fg_color_ssm.g = 0.500; fg_color_mars.g = 0.500; bg_color.g = 0.000;
-    fg_color_marsha.b = 0.800; fg_color_ssm.b = 0.000; fg_color_mars.b = 0.313; bg_color.b = 0.000;
-    fg_color_marsha.a = 1.000; fg_color_ssm.a = 1.000; fg_color_mars.a = 1.000; bg_color.a = 0.300;
-
-    jsk_rviz_plugins::OverlayText overlayed_text;
-    overlayed_text.font = "FreeSans";
-    overlayed_text.bg_color = bg_color;
-    overlayed_text.height = 70;
-    overlayed_text.width = 450;
-    overlayed_text.left = 290;
-    overlayed_text.top = 5;
-    overlayed_text.line_width = 2;
-    overlayed_text.text_size = 24;
 
     overlayed_text.action = overlayed_text.DELETE;
     text_overlay_pub.publish(overlayed_text);
@@ -236,10 +236,11 @@ int main(int argc, char **argv)
       overlayed_text.fg_color = fg_color_mars;
 
     overlayed_text.action = overlayed_text.ADD;
-    text_overlay_pub.publish(overlayed_text);
 
     for(int n_iter = 0; n_iter<num_test; n_iter++)
     {
+      text_overlay_pub.publish(overlayed_text);
+
       if(not ros::ok())
         break;
 
@@ -311,7 +312,7 @@ int main(int argc, char **argv)
       pathplan::PathPtr solution;
       std::map<double,pathplan::PathPtr> path_vector;
 
-      while(not solver->computePath(start_node,goal_node,nh,solution,20.0,10000));
+      while(not solver->computePath(start_node,goal_node,nh,solution,5.0,10000));
       path_vector.insert(std::pair<double,pathplan::PathPtr>(solution->computeEuclideanNorm(),solution));
 
       ROS_WARN_STREAM("current path cost "<<solution->cost());
@@ -532,6 +533,8 @@ int main(int argc, char **argv)
 
       ssm->clearObstaclesPositions();
       disp->clearMarkers();
+
+      text_overlay_pub.publish(overlayed_text);
 
       pathplan::ReplannerManagerBasePtr replanner_manager;
       if(algorithm == "MARSHA")
