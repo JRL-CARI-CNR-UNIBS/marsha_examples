@@ -226,21 +226,8 @@ int main(int argc, char **argv)
     overlayed_text.action = overlayed_text.DELETE;
     text_overlay_pub.publish(overlayed_text);
 
-    std::string text = "Currently running algorithm: \n" + algorithm;
-    overlayed_text.text = text;
-    if(algorithm == "MARSHA")
-    overlayed_text.fg_color = fg_color_marsha;
-    else if(algorithm == "SSM")
-      overlayed_text.fg_color = fg_color_ssm;
-    else
-      overlayed_text.fg_color = fg_color_mars;
-
-    overlayed_text.action = overlayed_text.ADD;
-
     for(int n_iter = 0; n_iter<num_test; n_iter++)
     {
-      text_overlay_pub.publish(overlayed_text);
-
       if(not ros::ok())
         break;
 
@@ -534,27 +521,36 @@ int main(int argc, char **argv)
       ssm->clearObstaclesPositions();
       disp->clearMarkers();
 
-      text_overlay_pub.publish(overlayed_text);
-
       pathplan::ReplannerManagerBasePtr replanner_manager;
       if(algorithm == "MARSHA")
       {
+        overlayed_text.fg_color = fg_color_marsha;
+
         replanner_manager = std::make_shared<pathplan::ReplannerManagerMARSHA>(current_path,solver,nh,ha_metrics,other_paths);
         replanner_manager->enableReplanning(true);
       }
       else if(algorithm == "MARS")
       {
+        overlayed_text.fg_color = fg_color_mars;
+
         replanner_manager = std::make_shared<pathplan::ReplannerManagerMARS>(current_path,solver,nh,other_paths);
         replanner_manager->enableReplanning(true);
       }
       else if(algorithm == "SSM")
       {
+        overlayed_text.fg_color = fg_color_ssm;
+
         other_paths.clear();
         replanner_manager = std::make_shared<pathplan::ReplannerManagerMARS>(current_path,solver,nh);
         replanner_manager->enableReplanning(false);
       }
       else
         return 0;
+
+      std::string text = "Currently running algorithm: \n" + algorithm;
+      overlayed_text.text = text;
+      overlayed_text.action = overlayed_text.ADD;
+      text_overlay_pub.publish(overlayed_text);
 
       human_simulator::HumanSimulatorGoal hs_goal;
       hs_goal.queried_loops = 1;
