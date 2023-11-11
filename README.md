@@ -7,7 +7,7 @@ The example involve a mobile humanoid mannequin sharing workspace with a robot. 
 - MARS: Replans a collision-free path, aiming for the shortest one, without accounting for safety-related implications.
 
 ## Build and execute
-Therre are two options: catkin workspace or Docker.
+Therre are two options: catkin workspace and Docker.
 
 ### Catkin workspace
 The software can be installed using rosinstall files.
