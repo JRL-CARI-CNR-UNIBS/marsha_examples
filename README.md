@@ -25,10 +25,10 @@ cd ~/replanning_ws
 catkin init
 wstool init src
 ```
-The main dependency of MARSHA is [OpenMORE](https://github.com/JRL-CARI-CNR-UNIBS/OpenMORE.git). You can use its rosinstall file to dowload the required dependencies:
+The main dependency of MARSHA is [OpenMORE](https://github.com/JRL-CARI-CNR-UNIBS/OpenMORE/tree/tase). You can use its rosinstall file to dowload the required dependencies:
 ```
 cd ~/replanning_ws
-wget https://raw.githubusercontent.com/JRL-CARI-CNR-UNIBS/OpenMORE/master/OpenMORE.rosinstall
+wget https://raw.githubusercontent.com/JRL-CARI-CNR-UNIBS/OpenMORE/refs/heads/tase/OpenMORE.rosinstall
 wstool merge -t src ./OpenMORE.rosinstall
 wstool update -t src
 ```
