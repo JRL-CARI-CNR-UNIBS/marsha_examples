@@ -7,7 +7,7 @@ The example involve a mobile humanoid mannequin sharing workspace with a robot. 
 - MARS: Replans a collision-free path, aiming for the shortest one, without accounting for safety-related implications.
 
 ## Build and execute
-Therre are two options: catkin workspace and Docker.
+There are two options: catkin workspace and Docker.
 
 ### Catkin workspace
 The software can be installed using rosinstall files.
@@ -25,10 +25,10 @@ cd ~/replanning_ws
 catkin init
 wstool init src
 ```
-The main dependency of MARSHA is [OpenMORE](https://github.com/JRL-CARI-CNR-UNIBS/OpenMORE.git). You can use its rosinstall file to dowload the required dependencies:
+The main dependency of MARSHA is [OpenMORE](https://github.com/JRL-CARI-CNR-UNIBS/OpenMORE/tree/tase). You can use its rosinstall file to dowload the required dependencies:
 ```
 cd ~/replanning_ws
-wget https://raw.githubusercontent.com/JRL-CARI-CNR-UNIBS/OpenMORE/master/OpenMORE.rosinstall
+wget https://raw.githubusercontent.com/JRL-CARI-CNR-UNIBS/OpenMORE/refs/heads/tase/OpenMORE.rosinstall
 wstool merge -t src ./OpenMORE.rosinstall
 wstool update -t src
 ```
