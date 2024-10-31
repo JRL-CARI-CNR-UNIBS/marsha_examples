@@ -547,7 +547,7 @@ int main(int argc, char **argv)
       else
         return 0;
 
-      std::string text = "Currently running algorithm: \n" + algorithm;
+      std::string text = "Currently running algorithm: " + algorithm;
       overlayed_text.text = text;
       overlayed_text.action = overlayed_text.ADD;
       text_overlay_pub.publish(overlayed_text);
